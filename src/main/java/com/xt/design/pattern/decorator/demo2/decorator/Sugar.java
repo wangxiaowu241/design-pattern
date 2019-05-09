@@ -12,8 +12,6 @@ import java.math.BigDecimal;
 public class Sugar extends Decorator {
 
   public Sugar(Drink drink) {
-    super(drink);
-    setPrice(BigDecimal.ONE);
-    setDescription("糖");
+    super(drink, "糖", BigDecimal.ONE);
   }
 }

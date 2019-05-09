@@ -19,7 +19,7 @@ public abstract class Drink {
   }
 
   public void setDescription(String description) {
-    this.description += description;
+    this.description = description;
   }
 
   public BigDecimal getPrice() {

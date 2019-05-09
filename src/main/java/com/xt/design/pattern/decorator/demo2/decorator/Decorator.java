@@ -13,12 +13,25 @@ public abstract class Decorator extends Drink {
 
   private Drink drink;
 
-  public Decorator(Drink drink) {
+  private BigDecimal cost;
+
+  private String description;
+
+  public Decorator(Drink drink, String description, BigDecimal cost) {
     this.drink = drink;
+    this.description = description;
+    this.cost = cost;
   }
 
   @Override
   public BigDecimal cost() {
-    return super.getPrice().add(drink.cost());
+
+    return drink.cost().add(cost);
+  }
+
+  @Override
+  public String getDescription() {
+
+    return drink.getDescription() + "+" + description;
   }
 }

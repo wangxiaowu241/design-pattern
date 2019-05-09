@@ -24,12 +24,17 @@ public class DecoratorDesignTest {
 
   public static void main(String[] args) {
 
+    Milk milk = new Milk(new LatteCoffee());
+
+    Milk milk1 = new Milk(milk);
+    Sugar sugar = new Sugar(milk1);
+
     //加两份糖，一份牛奶的摩卡
     Drink firstDrink = new Sugar(new Milk(new Milk(new LatteCoffee())));
-    System.out.println(firstDrink.getDescription() + "-" + firstDrink.cost());
+    System.out.println("商品：" + firstDrink.getDescription() + " \n价格：" + firstDrink.cost());
 
     //一份糖，一份牛奶的拿铁
     Drink secondDrink = new Sugar(new Milk(new LatteCoffee()));
-    System.out.println(secondDrink.getDescription() + "-" + secondDrink.cost());
+    System.out.println("商品：" + secondDrink.getDescription() + " \n价格：" + secondDrink.cost());
   }
 }
