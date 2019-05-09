@@ -24,11 +24,6 @@ public class DecoratorDesignTest {
 
   public static void main(String[] args) {
 
-    Milk milk = new Milk(new LatteCoffee());
-
-    Milk milk1 = new Milk(milk);
-    Sugar sugar = new Sugar(milk1);
-
     //加两份糖，一份牛奶的摩卡
     Drink firstDrink = new Sugar(new Milk(new Milk(new LatteCoffee())));
     System.out.println("商品：" + firstDrink.getDescription() + " \n价格：" + firstDrink.cost());
