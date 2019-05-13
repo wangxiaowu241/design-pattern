@@ -16,6 +16,8 @@ public class JDKDynamicProxyTest {
     public static void main(String[] args)
             throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
 
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+
         JDKDynamicProxyHandler jdkDynamicProxyHandler1 = new JDKDynamicProxyHandler(
                 HelloServiceImpl.class);
 
