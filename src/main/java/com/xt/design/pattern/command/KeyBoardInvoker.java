@@ -1,9 +1,9 @@
 package com.xt.design.pattern.command;
 
 /**
- * 请求的调用者
+ * 请求的调用者，由键盘扮演
  */
-public class Invoker {
+public class KeyBoardInvoker {
 
 
     private Command command;
