@@ -6,19 +6,19 @@ package com.xt.design.pattern.singleton;
  * @author wangxiaoteng
  * @date 2019/4/29 19:25
  */
-public class StaticInnerClassSingleTon {
+public final class StaticInnerClassSingleTon {
 
-  private StaticInnerClassSingleTon() {
+    private StaticInnerClassSingleTon() {
 
-  }
+    }
 
-  private StaticInnerClassSingleTon getInstance() {
-    return StaticInnerClassSingleTonHolder.instance;
-  }
+    private StaticInnerClassSingleTon getInstance() {
+        return StaticInnerClassSingleTonHolder.instance;
+    }
 
-  private static class StaticInnerClassSingleTonHolder {
+    private static class StaticInnerClassSingleTonHolder {
 
-    private static final StaticInnerClassSingleTon instance = new StaticInnerClassSingleTon();
-  }
+        private static final StaticInnerClassSingleTon instance = new StaticInnerClassSingleTon();
+    }
 
 }

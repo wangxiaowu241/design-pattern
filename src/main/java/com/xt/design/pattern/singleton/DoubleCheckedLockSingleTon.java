@@ -13,22 +13,25 @@ package com.xt.design.pattern.singleton;
  * @author wangxiaoteng
  * @date 2019/4/29 19:20
  */
-public class DoubleCheckedLockSingleTon {
+public final class DoubleCheckedLockSingleTon {
 
-  private static volatile DoubleCheckedLockSingleTon instance;
+    private static volatile DoubleCheckedLockSingleTon instance;
 
-  private DoubleCheckedLockSingleTon() {
-  }
-
-  public static DoubleCheckedLockSingleTon getInstance() {
-
-    if (null == instance) {
-      synchronized (DoubleCheckedLockSingleTon.class) {
-        if (null == instance) {
-          instance = new DoubleCheckedLockSingleTon();
+    private DoubleCheckedLockSingleTon() {
+        if (instance != null) {
+            throw new IllegalStateException("实例已经初始化！");
         }
-      }
     }
-    return instance;
-  }
+
+    public static DoubleCheckedLockSingleTon getInstance() {
+
+        if (null == instance) {
+            synchronized (DoubleCheckedLockSingleTon.class) {
+                if (null == instance) {
+                    instance = new DoubleCheckedLockSingleTon();
+                }
+            }
+        }
+        return instance;
+    }
 }

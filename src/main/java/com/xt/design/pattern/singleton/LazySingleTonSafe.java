@@ -13,17 +13,20 @@ package com.xt.design.pattern.singleton;
  * @author wangxiaoteng
  * @date 2019/4/29 19:00
  */
-public class LazySingleTonSafe {
+public final class LazySingleTonSafe {
 
-  private static volatile LazySingleTonSafe instance;
+    private static volatile LazySingleTonSafe instance;
 
-  private LazySingleTonSafe() {
-  }
-
-  public synchronized static LazySingleTonSafe getInstance() {
-    if (null == instance) {
-      instance = new LazySingleTonSafe();
+    private LazySingleTonSafe() {
+        if (instance != null) {
+            throw new IllegalStateException("实例已经初始化！");
+        }
     }
-    return instance;
-  }
+
+    public synchronized static LazySingleTonSafe getInstance() {
+        if (null == instance) {
+            instance = new LazySingleTonSafe();
+        }
+        return instance;
+    }
 }

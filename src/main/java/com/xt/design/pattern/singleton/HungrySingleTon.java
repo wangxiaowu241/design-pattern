@@ -13,14 +13,17 @@ package com.xt.design.pattern.singleton;
  * @author wangxiaoteng
  * @date 2019/4/29 19:07
  */
-public class HungrySingleTon {
+public final class HungrySingleTon {
 
-  private static final HungrySingleTon instance = new HungrySingleTon();
+    private static final HungrySingleTon instance = new HungrySingleTon();
 
-  private HungrySingleTon() {
-  }
+    private HungrySingleTon() {
+        if (instance != null) {
+            throw new IllegalStateException("实例已经初始化！");
+        }
+    }
 
-  public HungrySingleTon getInstance() {
-    return instance;
-  }
+    public HungrySingleTon getInstance() {
+        return instance;
+    }
 }
