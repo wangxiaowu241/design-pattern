@@ -15,7 +15,7 @@ package com.xt.design.pattern.singleton;
  */
 public class LazySingleTonSafe {
 
-  private static LazySingleTonSafe instance;
+  private static volatile LazySingleTonSafe instance;
 
   private LazySingleTonSafe() {
   }
